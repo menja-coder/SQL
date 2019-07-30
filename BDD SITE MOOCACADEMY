@@ -1,0 +1,56 @@
+/*CRÉATION DE BASE DES DONNÉES */
+sqlite3 db.dBMOOC
+
+/*CRÉATION DE LA TABLE cour*/
+sqlite> CREATE TABLE 'cour' (  
+   ...> 'id' INTEGER PRIMARY KEY AUTOINCREMENT,
+   ...> 'titre' TEXT,
+   ...> 'description' TEXT);
+
+/*cRÉATION DE LA TABLE Lecon */
+sqlite> CREATE TABLE 'lecon' (  
+   ...> 'id' INTEGER PRIMARY KEY AUTOINCREMENT,
+   ...> 'idcour' INTEGER
+   ...> 'titre' TEXT,
+   ...> 'contenu' TEXT);
+
+
+
+/* On peut voir que ces deux tables sont liées parce que dans la table lecon, j'ai deux clés uniques :
+    La clé id, aussi appelée clé primaire ou primary key(qui s'autoincremente quand on ajoute des données.
+    La clé idcour, aussi appelée clé étrangère ou foreign key.Cette dernière permet de lier les deux tables. Par exemple, l'entrée "Algèbre" qui a pour attribut idcour=3 de la table "lecon" est liée à l'entrée portant l'id =3 dans la table "cour". 
+
+cour					lecon
+|id|titre|desciption|			|id|idcour| titre | contenu |
+| 3|Maths|..........|			| 1| 3    |Algèbre|ppcm;pgcd|
+
+En fin, on sait que l'Algèbre fait partie du cour Maths  */
+
+
+
+
+/*BDD PINTEREST */
+/*CRÉATION DE BASE DES DONNÉES */
+sqlite3 db.dBMOOC
+/*table user*/
+sqlite> CREATE TABLE 'user' (  
+   ...> 'id' INTEGER PRIMARY KEY AUTOINCREMENT,
+   ...> 'nom' TEXT);
+ /*table pin*/
+sqlite> CREATE TABLE 'pin' (  
+   ...> 'id' INTEGER PRIMARY KEY AUTOINCREMENT,
+   ...> 'usr_id' INTEGER,
+   ...> 'url' TEXT);
+/*table commentaire*/
+sqlite> CREATE TABLE 'cour' (  
+   ...> 'id' INTEGER PRIMARY KEY AUTOINCREMENT,
+   ...> 'pin_id' INTEGER,
+   ...> 'user_id' INTEGER,
+   ...> 'contenu' TEXT);
+
+
+/* On voit bien que ces trois tables sont liées, on a trois clés uniques dans la table commentaire:
+    - la clé id: clé primaire
+    - les clés etrangères: pin_id et user_id
+la clé pin_id permet de savoir le pin que l'utilisateur a commenté et la clé user_id mène vers le nom du commentateur.
+Ainsi, la table user et pin se lient entre eux grace à la clé user_id qui permet de connaitre le nom d'utilisteur créateur du pin */

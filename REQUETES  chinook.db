@@ -1,0 +1,34 @@
+/* Récuperer tous les albums */
+
+SELECT albums.Title FROM albums;
+
+/* Récupérer tous les albums dont le titre contient "Great" */
+
+SELECT albums.Title FROM albums WHERE Title LIKE '%Great %';
+
+/* Donner le nombre total d'albums contenus dans la base */
+
+ SELECT COUNT (*) FROM albums; 
+
+/* Supprimer tous les albums dont le nom contient "music" */
+
+DELETE * FROM albums WHERE Title LIKE '%music%'
+
+/* Récupérer tous les albums écrits par AC/DC */
+
+SELECT * FROM albums WHERE ArtistId = '1';
+
+/*Récupérer tous les titres des albums de AC/DC*/
+SELECT albums.Title FROM albums WHERE ArtistId = '1';
+
+/* Récupérer la liste des titres de l'album "Let There Be Rock" */
+
+SELECT albums.Title FROM albums WHERE Title = "Let There Be Rock"; 
+
+
+
+
+
+
+
+

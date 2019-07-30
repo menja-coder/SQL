@@ -1,0 +1,32 @@
+sqlite3 db.BDD  /* CRÉER LA BASE DES DONNEES */
+
+/*table User */
+sqlite> CREATE TABLE 'User' (  
+   ...> 'id' INTEGER PRIMARY KEY AUTOINCREMENT,
+   ...> 'name' TEXT);
+sqlite> INSERT INTO 'User'(name) VALUES ('Menja');
+
+/*table article */
+sqlite> CREATE TABLE 'article' ( 
+   ...> 'id' INTEGER PRIMARY KEY AUTOINCREMENT, /*cet id s'incremente automatique à chaque entrée */
+   ...> 'category' TEXT,
+   ...> 'idUser' INTEGER);
+sqlite> INSERT INTO 'article'(category,idUser) VALUES ('sport',0);
+
+/*table category*/
+sqlite> CREATE TABLE 'category' ( 
+   ...> 'id'INTEGER PRIMARY KEY AUTOINCREMENT,
+   ...> 'titre' TEXT,
+   ...> 'idarticle' INTEGER);
+sqlite> INSERT INTO 'category'(titre,idarticle) VALUES ('sport',0);
+
+/*table tag*/
+sqlite> CREATE TABLE 'tag' (
+   ...> 'id' INTEGER PRIMARY KEY AUTOINCREMENT,
+   ...> 'titre' TEXT,
+   ...> 'couleur' TEXT,
+   ...> 'idcategory' INTEGER);
+
+sqlite> INSERT INTO 'tag'(titre,couleur, idcategory) VALUES ('Foot','bleue',0);
+
+
